@@ -72,36 +72,36 @@ class Person {
 	}
 
 	//Comparator to compare contacts by name (ascending order)
-	public static Comparator<Person> NameComparator = new Comparator<Person>() {
+	public static Comparator<Person> nameComparator = new Comparator<Person>() {
 
 	public int compare(Person p1, Person p2) {
-	   String PersonLastName1 = p1.getLastName().toUpperCase();
-	   String PersonLastName2 = p2.getLastName().toUpperCase();
+	   String personLastName1 = p1.getLastName().toUpperCase();
+	   String personLastName2 = p2.getLastName().toUpperCase();
 
-	   if (PersonLastName1.equals(PersonLastName2))
+	   if (personLastName1.equals(personLastName2))
 	   {
-	       String PersonFirstName1 = p1.getFirstName().toUpperCase();
-	       String PersonFirstName2 = p2.getFirstName().toUpperCase();
-	       return PersonFirstName1.compareTo(PersonFirstName2);
+	       String personFirstName1 = p1.getFirstName().toUpperCase();
+	       String personFirstName2 = p2.getFirstName().toUpperCase();
+	       return personFirstName1.compareTo(personFirstName2);
 	   }
 	   else
-    	   return PersonLastName1.compareTo(PersonLastName2);
+    	   return personLastName1.compareTo(personLastName2);
 
     }};
 
     //Comparator to compare contacts by zip code (ascending order)
-    public static Comparator<Person> ZipComparator = new Comparator<Person>() {
+    public static Comparator<Person> zipComparator = new Comparator<Person>() {
 
 	public int compare(Person p1, Person p2) {
-	   String PersonZip1 = p1.getZipCode();
-	   String PersonZip2 = p2.getZipCode();
+	   String personZip1 = p1.getZipCode();
+	   String personZip2 = p2.getZipCode();
 
-	   if (PersonZip1.equals(PersonZip2))
+	   if (personZip1.equals(personZip2))
 	   {
-	       return NameComparator.compare(p1,p2);
+	       return nameComparator.compare(p1,p2);
 	   }
 	   else
-    	   return PersonZip1.compareTo(PersonZip2);
+    	   return personZip1.compareTo(personZip2);
 
     }};
 
@@ -213,14 +213,13 @@ public class AddressBook {
     }
 
     public void sortByName() {
-        Collections.sort(this.contacts, Person.NameComparator);
+        Collections.sort(this.contacts, Person.nameComparator);
         System.out.println("Entries sorted by name successfully! \n");
 
     }
 
     public void sortByZip() {
-        //Collections.sort(this.contacts, Comparator.comparing(Person::getZipCode));
-        Collections.sort(this.contacts, Person.ZipComparator);
+        Collections.sort(this.contacts, Person.zipComparator);
         System.out.println("Entries sorted by zip code successfully! \n");
     }
 
